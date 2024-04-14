@@ -1,7 +1,7 @@
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Cart from '../pages/Cart';
+import { Link } from 'react-router-dom'; // Import Link from React Router if you're using it
+import Cart from '../pages/Cart'; // Import the Cart component if it's in a separate file
 
 function Navbar() {
   // State to track user's login status
