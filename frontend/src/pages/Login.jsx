@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Removed unnecessary imports
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function LoginForm() {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -16,7 +16,10 @@ function LoginForm() {
       });
       console.log('Login successful:', response.data);
       alert('Login successful');
-      localStorage.setItem('authToken', response.data.token); // Corrected localStorage setting
+
+      localStorage.setItem('userEmail', email); // Corrected localStorage setting
+
+      localStorage.setItem('authToken', response.data.token);
       console.log(localStorage.getItem('authToken'));
       navigate('/');
     } catch (error) {
@@ -65,4 +68,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default Login;

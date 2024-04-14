@@ -18,6 +18,14 @@ const reducer = (state, action) => {
           size: action.size
         }
       ];
+    case "DELETE":
+      return state.filter(item => item.id !== action.id);
+    case "UPDATE":
+      return state.map(item =>
+        item.id === action.id ? { ...item, qty: action.qty, size: action.size } : item
+      );
+    case "DROP":
+      return []; // Return an empty array to clear the entire cart
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }

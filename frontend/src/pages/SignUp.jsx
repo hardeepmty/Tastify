@@ -3,7 +3,7 @@ import { Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-function SignupForm() {
+function SignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -91,4 +91,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default SignUp;
