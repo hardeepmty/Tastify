@@ -1,0 +1,74 @@
+[
+  {
+    "CategoryName": "Biriyani/Rice",
+    "name": "Chicken fried rice",
+    "img": "fried_rice.jpeg",
+    "options": [
+      {
+        "half": "130",
+        "full": "230"
+      }
+    ],
+    "description": "Delicious fried rice with tender chicken pieces."
+  },
+  {
+    "CategoryName": "Biriyani/Rice",
+    "name": "Vegetable biryani",
+    "img": "vegetable_biryani.jpeg",
+    "options": [
+      {
+        "half": "120",
+        "full": "220"
+      }
+    ],
+    "description": "Aromatic biryani with a variety of fresh vegetables."
+  },
+  {
+    "CategoryName": "Biriyani/Rice",
+    "name": "Egg biryani",
+    "img": "egg_biryani.jpeg",
+    "options": [
+      {
+        "half": "140",
+        "full": "240"
+      }
+    ],
+    "description": "Flavorful biryani infused with boiled eggs."
+  },
+  {
+    "CategoryName": "Burger",
+    "name": "Chicken burger",
+    "img": "chicken_burger.jpeg",
+    "options": [
+      {
+        "half": "150",
+        "full": "250"
+      }
+    ],
+    "description": "Juicy chicken patty served in a soft bun with fresh veggies."
+  },
+  {
+    "CategoryName": "Burger",
+    "name": "Veggie burger",
+    "img": "veggie_burger.jpeg",
+    "options": [
+      {
+        "half": "120",
+        "full": "220"
+      }
+    ],
+    "description": "A delicious vegetarian option with a variety of garden-fresh vegetables."
+  },
+  {
+    "CategoryName": "Pizza",
+    "name": "Margherita Pizza",
+    "img": "margherita_pizza.jpeg",
+    "options": [
+      {
+        "half": "200",
+        "full": "300"
+      }
+    ],
+    "description": "Classic pizza topped with tomato sauce, mozzarella cheese, and fresh basil."
+  }
+]
