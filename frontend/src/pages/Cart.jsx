@@ -61,7 +61,7 @@ const Cart = () => {
   
   return (
     <div>
-      <Typography variant='h6'>Cart</Typography>
+      <Typography variant='h4' sx={{fontWeight:"800", fontFamily:"Montserrat", textAlign:"center"}}>My Cart</Typography>
       <Table>
         <TableHead>
           <TableRow>
@@ -97,10 +97,10 @@ const Cart = () => {
           ))}
         </TableBody>
       </Table>
+      <Typography variant='h4'>Total Amount: ₹{totalAmount.toFixed(2)}</Typography>
       <Button variant="contained" color="primary" onClick={handleCheckout}>
         Checkout
       </Button>
-      <Typography variant='body1'>Total Amount: ${totalAmount.toFixed(2)}</Typography>
     </div>
   );
 };
