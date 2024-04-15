@@ -14,7 +14,7 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://tastify.onrender.com/api/createuser', {
+      const response = await axios.post('http://localhost:5000/api/createuser', {
         name,
         email, 
         password,
