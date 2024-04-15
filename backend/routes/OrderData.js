@@ -3,10 +3,11 @@ const router = express.Router();
 const Order = require('../models/Orders');
 
 router.post('/orderData', async (req, res) => {
+  console.log(5);
   try {
     const userEmail = req.body.email;
     const orderData = req.body.order_.data;
-    const orderDate = req.body.order_.date;
+    const orderDate = req.body.order._date;
 
     // Construct the order object
     const order = {

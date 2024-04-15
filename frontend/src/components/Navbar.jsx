@@ -21,7 +21,8 @@ function Navbar() {
   return (
     <AppBar position="fixed">
       <Toolbar className='nav' sx={{ justifyContent: 'space-between', bgcolor:"snow" }}>
-        <Typography variant="h5" sx={{color:"orange", fontWeight:"800", fontFamily:"Montserrat"}}>
+        <Typography variant="h5" sx={{color:"orange", fontWeight:"800", fontFamily:"Montserrat", display: 'flex', alignItems: 'center'}}>
+          <img src="/images/pngwing.com (1).png" alt="Logo" style={{ marginRight: '10px', height: '30px' }} />
           TASTIFY
         </Typography>
         <div>
