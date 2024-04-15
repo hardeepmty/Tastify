@@ -42,10 +42,8 @@ const Cart = () => {
     try {
       const userEmail = localStorage.getItem('userEmail');
       const response = await axios.post("http://localhost:5000/api/orderData", {
-        order_: {
-          data: cart,
-          date: new Date().toDateString()
-        },
+          order_data: cart,
+          date: new Date().toDateString(),
         email: userEmail
       });
   

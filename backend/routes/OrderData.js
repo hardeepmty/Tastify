@@ -6,14 +6,14 @@ router.post('/orderData', async (req, res) => {
   console.log(5);
   try {
     const userEmail = req.body.email;
-    const orderData = req.body.order_.data;
-    const orderDate = req.body.order._date;
+    const orderData = req.body.order_data;
+    const orderDate = req.body.date;
 
     // Construct the order object
     const order = {
       email: userEmail,
       date: orderDate,
-      items: orderData
+      order_data: orderData
     };
 
     // Save the order to the database
