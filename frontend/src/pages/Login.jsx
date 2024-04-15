@@ -10,7 +10,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/loginuser', {
+      const response = await axios.post('https://tastify.onrender.com/api/loginuser', {
         email,
         password
       });
