@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatchCart } from './ContextReducer';
+import { Box, Card as MUICard, CardContent, CardMedia, Typography, Select, MenuItem, Button } from '@mui/material';
 import axios from 'axios'; // Import Axios
+import './Card.css';
+
 
 const Card = ({ foodItem, options }) => {
   const [qty, setQty] = useState(1);
@@ -57,41 +60,39 @@ const Card = ({ foodItem, options }) => {
   }, [size, qty, options]);
 
   return (
-    <div>
-      <div className='card mt-3' style={{ width: '18rem', maxHeight: '360px', marginTop: '80px', backgroundColor: 'grey' }}>
-        <img className='pics' src={img} alt={name} style={{ width: '100%' }} />
-        <div className='card-body'>
-          <h5 className='card-title'>{name}</h5>
-          <p className='card-text'>{description}</p>
-          <div className='container w-100'>
+    <Box mt={3} className="cardContainer" >
+      <MUICard style={{ width: '18rem', maxHeight: '360px', marginTop: '8px', backgroundColor: 'silver',borderRadius:"15px"  }}>
+        <CardMedia component="img" src={img} alt={name} style={{ width: '100%',height:"183px" }} />
+        <CardContent>
+          <Typography variant="h5" component="h2" sx={{fontFamily:"Montserrat", fontWeight:"bold"}}>{name}</Typography>
+          <Typography variant="body2" component="p" sx={{fontFamily:"Montserrat", fontWeight:"medium"}}>{description}</Typography>
+          <Box display="flex" alignItems="center" justifyContent="space-between">
             {/* Select for quantity */}
-            <select className='m-2 h-100 w-100 bg-success' onChange={e => setQty(e.target.value)}>
+            <Select value={qty} onChange={e => setQty(e.target.value)} variant="outlined" sx={{height:"30px"}}>
               {Array.from(Array(6), (_, index) => (
-                <option key={index + 1} value={index + 1}>{index + 1}</option>
+                <MenuItem key={index + 1} value={index + 1}>{index + 1}</MenuItem>
               ))}
-            </select>
+            </Select>
 
             {/* Select for options */}
-            <select className='m-2 h-100 bg-sucess rounded' ref={priceRef} onChange={e => setSize(e.target.value)}>
+            <Select value={size} onChange={e => setSize(e.target.value)} variant="outlined" sx={{height:"30px"}}>
               {/* Mapping allOptions */}
               {allOptions.map(option => (
-                <option key={option} value={option}>{option}</option>
+                <MenuItem key={option} value={option}>{option}</MenuItem>
               ))}
-            </select>
+            </Select>
 
             {/* Display total price */}
-            <div className='d-inline h-100'>
-              {finalPrice}
-              </div>
-          </div>
+            <Typography variant="body1">₹{finalPrice}</Typography>
+          </Box>
           <hr />
           {/* Button to add item to cart */}
-          <button className={'btn btn-success justify-center ms-2'} onClick={handleAddToCart}>
+          <Button variant="contained" color="success" onClick={handleAddToCart}>
             Add To Cart
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+        </CardContent>
+      </MUICard>
+    </Box>
   );
 };
 

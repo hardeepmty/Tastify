@@ -6,7 +6,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-section">
-          <h2 style={{marginBottom:"0px"}}>ZWIGATO</h2>
+          <h2 style={{marginBottom:"0px"}}>TASTIFY</h2>
           <ul>
             <li>About Us</li>
             <li>Team</li>

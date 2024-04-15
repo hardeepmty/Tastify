@@ -20,17 +20,17 @@ function Navbar() {
 
   return (
     <AppBar position="fixed">
-      <Toolbar className='nav' sx={{ justifyContent: 'space-between', bgcolor:"silver" }}>
-        <Typography variant="h4" sx={{color:"red", fontWeight:"800"}}>
-          ZWIGATO
+      <Toolbar className='nav' sx={{ justifyContent: 'space-between', bgcolor:"snow" }}>
+        <Typography variant="h5" sx={{color:"orange", fontWeight:"800", fontFamily:"Montserrat"}}>
+          TASTIFY
         </Typography>
         <div>
           {isLoggedIn || isSignedUp ? (
             <>
               <Link to="/cart" style={{textDecoration: 'none'}}>
-                <Button className='btn' sx={{color:"red", fontSize:"20px"}}>My Cart</Button>
+                <Button className='btn' sx={{color:"red", fontSize:"15px", fontFamily:"Montserrat", fontWeight:"800"}}>My Cart</Button>
               </Link>
-              <Button onClick={handleLogout} className='btn' sx={{color:"red", fontSize:"20px"}}>Logout</Button>
+              <Button onClick={handleLogout} className='btn' sx={{color:"red", fontSize:"15px", fontFamily:"Montserrat", fontWeight:"800"}}>Logout</Button>
             </>
           ) : (
             <>

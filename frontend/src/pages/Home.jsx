@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Card from '../components/Card';
 import Carousel from '../components/Carousel';
+import { Container, Typography, TextField, Button, Grid, Stack } from '@mui/material';
 import axios from 'axios';
 
 const Home = () => {
@@ -25,56 +26,63 @@ const Home = () => {
     loadData();
   }, []);
 
-  
   const handleSearch = () => {
-    
     const filteredItems = foodItems.filter(item =>
       item.name.toLowerCase().includes(searchInput.toLowerCase())
     );
-  
     setFoodItems(filteredItems);
   }
 
   return (
-    <div>
+    <Stack spacing={2} style={{ backgroundImage: 'url(/images/bgimg.jpg)', backgroundSize: 'cover',backgroundAttachment:"fixed", backgroundPosition: 'center',display:"static", minHeight: '100vh' }}>
       <Navbar />
 
-      <div className='container' style={{marginTop:"100px"}}>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "20px", marginBottom: "20px" }}>
-          <input type="text" placeholder="Search Food" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
-          <button onClick={handleSearch}>Search</button>
-        </div>
+  
 
-        <h2>Food Categories</h2>
-        {foodCat.length > 0 ? (
-          <div className='row'>
-            {foodCat.map((category) => (
-              <div key={category._id} className='col-12'>
-                <h3>{category.CategoryName}</h3>
-                <div className='row'>
-                  {foodItems.filter((item) => item.CategoryName === category.CategoryName).map((item) => (
-                    <div key={item._id} className='col-12 col-md-6 col-lg-4'>
-                      <Card
-
-                      foodItem = {item}
-                        // foodName={item.name}
-                        // description={item.description}
-                        // price={item.price}
-                        // img={item.img}
-                        options={item.options}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div>No food categories available</div>
-        )}
-      </div>
+      <Container sx={{justifyContent:"center", alignContent:"center",}}>
+        <Stack spacing={6} marginTop={8}>
+          <Stack direction="row" alignItems="center" justifyContent="center">
+            <TextField
+              variant="outlined"
+              placeholder="Search food,categories and more"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              sx={{ width: 900, ml:"20px" }} // Adjust the width of the TextField
+            />
+            <Button
+              variant="contained"
+              onClick={handleSearch}
+              sx={{ marginLeft: 2, height: 56, bgcolor:"gray", color:"black", fontWeight:"bold",fontFamily:"Montserrat" }} // Add margin and adjust the height of the Button
+            >
+              Search
+            </Button>
+          </Stack>
+          <Typography variant="h4" sx={{ fontFamily:"Montserrat", fontWeight:"bold", textAlign:"center"}}>TOP PICKS FOR YOU !</Typography>
+          {foodCat.length > 0 ? (
+            <Grid container spacing={6}>
+              {foodCat.map((category) => (
+                <Grid item xs={12} key={category._id} sx={{mt:"200"}}>
+                  <Typography variant="h4" sx={{ fontFamily:"Montserrat", fontWeight:"bold"}}>{category.CategoryName}</Typography>
+                  <Grid container spacing={16} >
+                    {foodItems.filter((item) => item.CategoryName === category.CategoryName).map((item) => (
+                      <Grid item xs={12} sm={6} md={3} key={item._id}>
+                        <Card
+                          foodItem={item}
+                          options={item.options}
+                        />
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Grid>
+              ))}
+            </Grid>
+          ) : (
+            <Typography variant="body1">No food categories available</Typography>
+          )}
+        </Stack>
+      </Container>
       <Footer />
-    </div>
+    </Stack>
   );
 };
 
