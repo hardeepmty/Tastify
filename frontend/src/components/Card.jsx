@@ -40,20 +40,6 @@ const Card = ({ foodItem, options }) => {
       size: size,
       image: img
     });
-
-    // Make an HTTP POST request to save the item to the user's cart in the backend
-    try {
-      await axios.post('http://localhost:5000/api/add-to-cart', {
-        itemId: foodItem._id,
-        name: foodItem.name,
-        price: parsedFinalPrice,
-        qty: parsedQty,
-        size: size
-      });
-      console.log('Item added to cart in the backend.');
-    } catch (error) {
-      console.error('Error adding item to cart in the backend:', error);
-    }
   };
   
 

@@ -1,25 +1,20 @@
 import { AppBar, Button, Toolbar, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router if you're using it
-import Cart from '../pages/Cart'; // Import the Cart component if it's in a separate file
+import { Link } from 'react-router-dom';
 
 function Navbar() {
-  // State to track user's login status
+  
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('authToken'));
-  // State to track user's sign-up status
+  
   const [isSignedUp, setIsSignedUp] = useState(false);
 
-  // Function to handle logout
   const handleLogout = () => {
-    // Remove the auth token from local storage
     localStorage.removeItem('authToken');
-    // Update isLoggedIn state to false
     setIsLoggedIn(false);
   };
 
-  // Function to handle user signup
+ 
   const handleSignup = () => {
-    // Update isSignedUp state to true after successful signup
     setIsSignedUp(true);
   };
 
@@ -30,9 +25,7 @@ function Navbar() {
           ZWIGATO
         </Typography>
         <div>
-          {/* Conditional rendering based on whether the user is logged in or signed up */}
           {isLoggedIn || isSignedUp ? (
-            // Show logout button and my cart if user is logged in or signed up
             <>
               <Link to="/cart" style={{textDecoration: 'none'}}>
                 <Button className='btn' sx={{color:"red", fontSize:"20px"}}>My Cart</Button>
@@ -40,7 +33,6 @@ function Navbar() {
               <Button onClick={handleLogout} className='btn' sx={{color:"red", fontSize:"20px"}}>Logout</Button>
             </>
           ) : (
-            // Show login and signup buttons if user is not logged in or signed up
             <>
               <Link to="/login" style={{textDecoration: 'none'}}>
                 <Button className='btn' sx={{color:"red", fontSize:"20px"}}>Login</Button>
