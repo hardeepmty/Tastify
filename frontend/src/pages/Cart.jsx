@@ -41,7 +41,7 @@ const Cart = () => {
     console.log(7);
     try {
       const userEmail = localStorage.getItem('userEmail');
-      const response = await axios.post("http://localhost:5000/api/orderData", {
+      const response = await axios.post("https://tastify.onrender.com/api/orderData", {
           order_data: cart,
           date: new Date().toDateString(),
         email: userEmail

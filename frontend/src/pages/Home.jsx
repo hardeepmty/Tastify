@@ -13,7 +13,7 @@ const Home = () => {
 
   const loadData = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/foodData");
+      const response = await axios.post("https://tastify.onrender.com/api/foodData");
       console.log(response.data);
       setFoodItems(response.data.foodItems);
       setFoodCat(response.data.foodCategories);
